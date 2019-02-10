@@ -194,8 +194,10 @@ class Calculator(QMainWindow):
         SYMBOL = ""
 
     def root(self):
-        global NUM
-        NUM = float(self.line.text())
+        try:
+            NUM = float(self.line.text())
+        except ValueError:
+            return
         NUM = sqrt(NUM)
         self.line.setText(str(NUM))
 
